@@ -1,3 +1,4 @@
+from sqlalchemy import desc
 from sqlalchemy.orm.scoping import scoped_session
 
 from project.dao.models import Movie
@@ -56,3 +57,10 @@ class MovieDAO:
             self._db_session.commit()
             return obj
         return "фильм не обновлялся"
+    def get_filter(self, limit, offset, status):
+        if limit > 0 and status== "new":
+            return self._db__db_session.query(Movie).order_by(desc(Movie.year)).limit(limit).offset(offset).all()
+        elif limit >0:
+            return self._db__db_session.query(Movie).limit(limit).offset(offset).all()
+        elif status== "new":
+            return self._db__db_session.query(Movie).order_by(desc(Movie.year)).all()
