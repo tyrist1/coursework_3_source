@@ -3,8 +3,8 @@ from flask_cors import CORS
 from flask_restx import Api
 
 from project.setup_db import db
-from project.views import genres_ns
-
+from project.views import genres_ns, directors_ns, movies_ns, users_ns
+from project.views.auth import auth_ns
 
 api = Api(
     authorizations={

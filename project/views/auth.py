@@ -5,11 +5,10 @@ from project.exceptions import ItemNotFound
 from project.services import UsersService
 from project.setup_db import db
 
-from project.tools.security import auth_required
-
+from project.tools.security import auth_required, login_user
 
 auth_ns = Namespace("auth")
-parser = reqparse.ReuestParser()
+parser = reqparse.RequestParser()
 parser.add_argument('page', type=int)
 
 

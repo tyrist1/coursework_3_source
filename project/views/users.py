@@ -9,7 +9,7 @@ from project.tools.security import auth_required
 
 
 users_ns = Namespace("users")
-parser = reqparse.ReuestParser()
+parser = reqparse.RequestParser()
 parser.add_argument('page', type=int)
 
 
@@ -23,7 +23,7 @@ class DirectorsView(Resource):
         page = parser.parse_arg().get("page")
         if page:
             return UsersService(db.session).get_limit_users(page)
-        else
+        else:
             return UsersService(db.session).get_all_users()
 
 
@@ -35,7 +35,7 @@ class UserView(Resource):
     def get(self, user_id: int):
         """Get director by id"""
         try:
-            return UsersService(db.session).get_item_by_id(director_id)
+            return UsersService(db.session).get_item_by_id(user_id)
         except ItemNotFound:
             abort(404, message="User not found")
 

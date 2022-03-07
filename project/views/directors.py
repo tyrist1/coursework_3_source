@@ -8,7 +8,7 @@ from project.tools.security import auth_required
 
 
 directors_ns = Namespace("directors")
-parser = reqparse.ReuestParser()
+parser = reqparse.RequestParser()
 parser.add_argument('page', type=int)
 
 
@@ -22,7 +22,7 @@ class DirectorsView(Resource):
         page = parser.parse_arg().get("page")
         if page:
             return DirectorsService(db.session).get_limit_directors(page)
-        else
+        else:
             return DirectorsService(db.session).get_all_directors()
 
 
