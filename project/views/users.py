@@ -39,17 +39,17 @@ class UserView(Resource):
         except ItemNotFound:
             abort(404, message="User not found")
 
-
     def patch(self, user_id: int): """частичное изменение"""
     req_json = request.json
     if not req_json:
         abort(400, message="Bad request")
     if not req_json('id'):
-            req_json['id'] = user_id
+        req_json['id'] = id
     try:
-        return UsersService(db.session).update(req_json)
+        return UsersService(db.session).update_service(req_json)
     except ItemNotFound:
         abort(404, message="User not found")
+
 
 class UserPatchView(Resource):
     @auth_required

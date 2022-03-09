@@ -28,7 +28,7 @@ def auth_check():
 def jwt_decode(token):
     try:
         decoded_jwt = jwt.decode(token, current_app.config["SECRET_KEY"], current_app.config["JWT_ALGORITHM"])
-    except:
+    except ValueError:
         return False
     else:
         return decoded_jwt

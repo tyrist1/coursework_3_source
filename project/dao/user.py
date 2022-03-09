@@ -8,7 +8,7 @@ class UserDAO:
         self._db_session = session
 
     def get_by_id(self, pk):
-        return self._db_session.query(User).filter(User.id == pk).one_or_none() # .one_or_none()
+        return self._db_session.query(User).filter(User.id == pk).one_or_none()
 
     def get_all(self):
         return self._db_session.query(User).all()

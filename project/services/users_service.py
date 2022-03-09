@@ -25,7 +25,7 @@ class UsersService(BaseService):
 
     def get_limit_users(self, page):
         limit = current_app.config["ITEMS_PER_PAGE"]
-        offset = (page - 1)*limit
+        offset = (page - 1) * limit
         users = UserDAO(self._db_session).get_limit(limit=limit, offset=offset)
         if not users:
             raise ItemNotFound
@@ -38,7 +38,6 @@ class UsersService(BaseService):
             user = UserDAO(self._db_session).create(data_in)
 
         return UserSchema().dump(user)
-
 
     def update(self, data_in):
         user = UserDAO(self._db_session).update(data_in)

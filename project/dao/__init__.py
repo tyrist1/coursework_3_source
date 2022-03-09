@@ -9,8 +9,3 @@ __all__ = [
     "MovieDAO",
     "UserDAO",
 ]
-
-
-
-
-
