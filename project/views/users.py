@@ -1,3 +1,5 @@
+from typing import Any
+
 from flask import request
 from flask_restx import abort, Namespace, Resource, reqparse
 
@@ -39,16 +41,17 @@ class UserView(Resource):
         except ItemNotFound:
             abort(404, message="User not found")
 
-    def patch(self, user_id: int): """частичное изменение"""
-    req_json = request.json
-    if not req_json:
-        abort(400, message="Bad request")
-    if not req_json('id'):
-        req_json['id'] = id
-    try:
-        return UsersService(db.session).update(user_id)
-    except ItemNotFound:
-        abort(404, message="User not found")
+    """частичное изменение"""
+    def patch(self, user_id: int):
+        req_json = request.json
+        if not req_json:
+            abort(400, message="Bad request")
+        if not req_json('id'):
+            req_json['id'] = id
+        try:
+            return UsersService(db.session).update(user_id)
+        except ItemNotFound:
+            abort(404, message="User not found")
 
 
 class UserPatchView(Resource):
