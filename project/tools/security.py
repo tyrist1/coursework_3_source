@@ -71,7 +71,6 @@ def compare_passwords(password_hash, other_password):
 
 
 def login_user(req_json, user):
-
     user_email = req_json.get("email")
 
     user_pass = req_json.get("password")

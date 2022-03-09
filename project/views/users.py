@@ -65,4 +65,4 @@ class UserPatchView(Resource):
         try:
             return UsersService(db.session).update(req_json)
         except ItemNotFound:
-            abort(404, message="User not found")"""#  есть ошибка"""
+            abort(404, message="User not found")

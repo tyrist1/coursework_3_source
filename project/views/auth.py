@@ -26,7 +26,6 @@ class AuthView(Resource):
             abort(404, message="Error, ошибка автоматизации")
 
 
-
 @auth_ns.route("/register")
 class AuthRegisterView(Resource):
     def post(self):
