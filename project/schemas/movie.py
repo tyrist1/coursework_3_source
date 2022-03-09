@@ -1,5 +1,6 @@
 from marshmallow import Schema, fields
 
+
 class MovieSchema(Schema):
     id = fields.Int()
     title = fields.Str()

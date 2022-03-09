@@ -9,7 +9,3 @@ class Director(BaseMixin, db.Model):
 
     def __repr__(self):
         return f"<Director '{self.name.title()}'>"
-
-
-
-

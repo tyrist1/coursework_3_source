@@ -4,7 +4,7 @@ from project.exceptions import ItemNotFound
 from project.services import GenresService
 from project.setup_db import db
 
-movies_ns = Namespace("genres")
+movies_ns = Namespace("movies")
 
 
 @movies_ns.route("/")

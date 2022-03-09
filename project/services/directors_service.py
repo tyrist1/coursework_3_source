@@ -14,4 +14,3 @@ class DirectorsService(BaseService):
     def get_all_directors(self):
         directors = DirectorDAO(self._db_session).get_all()
         return DirectorSchema(many=True).dump(directors)
-
