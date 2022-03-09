@@ -29,7 +29,6 @@ class DirectorsView(Resource):
 
 @users_ns.route("/<int:user_id>")
 class UserView(Resource):
-    @users_ns.expect(parser)
     @auth_required
     @users_ns.response(200, "OK")
     @users_ns.response(404, "User not found")
@@ -53,7 +52,6 @@ class UserView(Resource):
 
 
 class UserPatchView(Resource):
-    @users_ns.expect(parser)
     @auth_required
     @users_ns.response(200, "OK")
     @users_ns.response(404, "User not found")
