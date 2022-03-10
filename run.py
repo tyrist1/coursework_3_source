@@ -16,3 +16,6 @@ def shell():
         "User": User,
 
     }
+
+if __name__ == '__main__':
+    app.run()
