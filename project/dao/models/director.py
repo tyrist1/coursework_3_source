@@ -6,6 +6,6 @@ class Director(BaseMixin, db.Model):
     __tablename__ = "directors"
 
     name = db.Column(db.String(100), unique=True, nullable=False)
-
+    director_id = db.Column(db.Integer, db.ForeignKey("base.id"), nullable=False)
     def __repr__(self):
         return f"<Director '{self.name.title()}'>"

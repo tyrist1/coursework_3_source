@@ -49,7 +49,7 @@ class UserView(Resource):
         if not req_json('id'):
             req_json['id'] = id
         try:
-            return UsersService(db.session).update(user_id)
+            return UsersService(db.session).update(req_json)
         except ItemNotFound:
             abort(404, message="User not found")
 
