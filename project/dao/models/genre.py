@@ -6,7 +6,7 @@ class Genre(BaseMixin, db.Model):
     __tablename__ = "genres"
 
     name = db.Column(db.String(100), unique=True, nullable=False)
-    genre_id = db.Column(db.Integer, db.ForeignKey("base.id"), nullable=False)
+    movie_id = db.Column(db.Integer, db.ForeignKey("movie.id"), nullable=False)
 
     def __repr__(self):
         return f"<Genre '{self.name.title()}'>"
